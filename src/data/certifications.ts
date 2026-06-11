@@ -1,16 +1,24 @@
 export const certifications = [
   {
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialUrl: "https://aws.amazon.com/verify",
-    badgeIcon: "aws",
+    title: "Claude 101",
+    issuer: "Anthropic Academy",
+    date: "2026",
+    credentialUrl: "https://verify.skilljar.com/c/smaxmmwbwcxs",
+    badgeIcon: "claude",
   },
   {
-    title: "Meta Front-End Developer",
-    issuer: "Meta / Coursera",
-    date: "2022",
-    credentialUrl: "https://coursera.org/verify/...",
-    badgeIcon: "meta",
+    title: "Claude Code 101",
+    issuer: "Anthropic Academy",
+    date: "2026",
+    credentialUrl: "https://verify.skilljar.com/c/6ytpk9n9k69n",
+    badgeIcon: "claude",
   },
+  {
+    title: "Introduction to Claude Cowork",
+    issuer: "Anthropic Academy",
+    date: "2026",
+    credentialUrl: "https://verify.skilljar.com/c/oq4ga3v84an4",
+    badgeIcon: "claude",
+  },
+
 ]
