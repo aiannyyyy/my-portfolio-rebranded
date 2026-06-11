@@ -1,20 +1,20 @@
 export const experience = [
   {
-    company: "Company Name",
-    role: "Senior Developer",
-    period: "2022 - Present",
+    company: "Newborn Screening Center - Southern Luzon",
+    role: "Computer Programmer I",
+    period: "2024 - Present",
     description: [
-      "Led development of a microservices architecture",
+      "Create applications depends on the users concern",
       "Improved system performance by 40%",
     ],
   },
   {
-    company: "Previous Company",
-    role: "Frontend Developer",
-    period: "2020 - 2022",
+    company: "Star Tollway Corporation",
+    role: "IT Support / Operator",
+    period: "February 2023 - July 2023",
     description: [
-      "Built reusable component library used across 3 products",
-      "Mentored 2 junior developers",
+      "Data Entry",
+      "Support Hardware and Software of the Company",
     ],
   },
 ]

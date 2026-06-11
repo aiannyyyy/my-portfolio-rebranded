@@ -12,11 +12,11 @@ export const skills = [
   {
     category: "Backend",
     icon: "server",
-    items: ["Node.js", "Express", "PostgreSQL"],
+    items: ["Node.js", "Express", "PostgreSQL", "MySQL", "MongoDB"],
   },
   {
     category: "Cloud & DevOps",
     icon: "cloud",
-    items: ["AWS", "Docker", "GitHub Actions"],
+    items: ["Docker", "GitHub Actions"],
   },
 ]
