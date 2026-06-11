@@ -3,8 +3,8 @@ import { ThemeProvider } from "next-themes"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Your Name - Full Stack Developer",
-  description: "Portfolio of Your Name, Full Stack Developer.",
+  title: "John Adrian Ticatic - Software Engineer",
+  description: "Portfolio of John Adrian Ticatic, Software Engineer.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
