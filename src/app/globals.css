@@ -1,11 +1,9 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   :root {
     --canvas:  #ffffff;
@@ -29,4 +27,16 @@
     background-color: var(--canvas);
     color: var(--text);
   }
+}
+
+/* Desktop — show sidebar, hide mobile nav */
+.desktop-sidebar { display: block; }
+.mobile-nav { display: none !important; }
+.main-content { margin-left: 256px; }
+
+/* Mobile — hide sidebar, show mobile nav */
+@media (max-width: 768px) {
+  .desktop-sidebar { display: none !important; }
+  .mobile-nav { display: block !important; }
+  .main-content { margin-left: 0 !important; }
 }
