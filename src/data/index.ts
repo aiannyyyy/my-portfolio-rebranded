@@ -1,0 +1,5 @@
+export { personal } from "./personal"
+export { skills } from "./skills"
+export { projects } from "./projects"
+export { experience } from "./experience"
+export { certifications } from "./certifications"
