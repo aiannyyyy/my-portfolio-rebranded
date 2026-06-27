@@ -4,8 +4,10 @@ export const experience = [
     role: "Computer Programmer I",
     period: "2024 - Present",
     description: [
-      "Create applications depends on the users concern",
-      "Improved system performance by 40%",
+      "Designed and developed custom applications tailored to the specific needs of different departments",
+      "Built an Accounting System, Replacement System, and Image Verification System to automate key internal workflows",
+      "Built a centralized Corporate Dashboard integrating Oracle and MySQL for real-time data visualization",
+      "Improved system performance by 40% through query optimization and backend refactoring",
     ],
   },
   {

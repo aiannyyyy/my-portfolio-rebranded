@@ -2,7 +2,7 @@ export const skills = [
   {
     category: "Languages",
     icon: "code",
-    items: ["TypeScript", "JavaScript", "Python"],
+    items: ["TypeScript", "JavaScript", "Python", "C# / VB.NET"],
   },
   {
     category: "Frontend",
@@ -12,11 +12,16 @@ export const skills = [
   {
     category: "Backend",
     icon: "server",
-    items: ["Node.js", "Express", "PostgreSQL", "Supabase", "MySQL", "MongoDB"],
+    items: ["Node.js", "PostgreSQL", "Supabase", "MySQL", "MongoDB"],
   },
   {
     category: "Cloud & DevOps",
     icon: "cloud",
     items: ["Docker", "GitHub Actions", "Vercel", "Render"],
+  },
+  {
+    category: "Desktop & Other",
+    icon: "monitor",
+    items: ["Electron.js", "VB.NET", "WinForms", ".NET Framework"],
   },
 ]

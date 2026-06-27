@@ -8,5 +8,5 @@
   github: "https://github.com/aiannyyyy",
   linkedin: "https://www.linkedin.com/in/john-adrian-ticatic-a080b6206/",
   resumeUrl: "/JohnAdrianTicatic_CV.pdf",
-  avatarUrl: "/avatar.jpg",
+  avatarUrl: "/image.jpg",
 }
