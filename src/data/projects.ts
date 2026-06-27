@@ -32,7 +32,7 @@
     repoUrl: "https://github.com/aiannyyyy/nscsl-dashboard.git",
     liveUrl: "https://nscsl-dashboard.vercel.app/dashboard/pdo",
     difficulty: "Advanced",
-    ongoing: true,
+    ongoing: false,
     featured: true,
 },
  {
@@ -44,7 +44,7 @@
     repoUrl: "https://github.com/aiannyyyy/file-management-system.git",
     liveUrl: "https://file-management-system-un7p.vercel.app/",
     difficulty: "Advanced",
-    ongoing: true,
+    ongoing: false,
     featured: true,
 },
   {
