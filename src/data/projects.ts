@@ -30,7 +30,7 @@
     explanation: "Built for internal corporate use with React, TypeScript, and Node.js. Connects to Oracle and MySQL databases in production. This demo uses mock data to protect corporate data privacy. Features include interactive charts with Recharts, real-time updates, and role-based access.",
     tech: ["React", "TypeScript", "Node.js", "Recharts", "Oracle DB", "MySQL", "Electron JS", "Web Sockets"],
     repoUrl: "https://github.com/aiannyyyy/nscsl-dashboard.git",
-    liveUrl: "https://nscsl-dashboard.vercel.app/dashboard/pdo",
+    liveUrl: "https://nscsl-dashboard.vercel.app/",
     difficulty: "Advanced",
     ongoing: false,
     featured: true,
