@@ -17,7 +17,12 @@ export const skills = [
   {
     category: "Cloud & DevOps",
     icon: "cloud",
-    items: ["Docker", "GitHub Actions", "Vercel", "Render"],
+    items: ["Docker", "GitHub Actions", "Vercel", "Render", "Railway"],
+  },
+  {
+    category: "Automation",
+    icon: "zap",
+    items: ["Power Automate", "n8n", "Zapier", "Make"],
   },
   {
     category: "Desktop & Other",

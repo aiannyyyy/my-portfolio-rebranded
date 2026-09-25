@@ -15,6 +15,9 @@ const suggestions = [
 
 function formatMessage(text: string) {
   return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/\n/g, "<br/>")
 }
@@ -58,11 +61,11 @@ export default function ChatWidget() {
             </div>
             <button onClick={() => setOpen(false)} style={{ background:"none", border:"none", cursor:"pointer", fontSize:"1.2rem", color:"var(--muted)" }}>X</button>
           </div>
-          <div style={{ flex:1, overflowY:"auto", padding:"16px", display:"flex", flexDirection:"column", gap:"12px" }}>
+          <div style={{ flex:1, overflowY:"auto", overflowX:"hidden", padding:"16px", display:"flex", flexDirection:"column", gap:"12px" }}>
             {messages.map((m, i) => (
               <div key={i} style={{ display:"flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start" }}>
                 <div
-                  style={{ maxWidth:"80%", padding:"8px 12px", borderRadius:"8px", fontSize:"0.8rem", lineHeight:1.5, backgroundColor: m.role === "user" ? "var(--accent)" : "var(--surface)", color: m.role === "user" ? "#ffffff" : "var(--text)", border: m.role === "assistant" ? "1px solid var(--border)" : "none" }}
+                  style={{ maxWidth:"80%", overflowWrap:"anywhere", padding:"8px 12px", borderRadius:"8px", fontSize:"0.8rem", lineHeight:1.5, backgroundColor: m.role === "user" ? "var(--accent)" : "var(--surface)", color: m.role === "user" ? "#ffffff" : "var(--text)", border: m.role === "assistant" ? "1px solid var(--border)" : "none" }}
                   dangerouslySetInnerHTML={{ __html: formatMessage(m.content) }}
                 />
               </div>

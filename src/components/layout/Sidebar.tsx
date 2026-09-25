@@ -1,7 +1,7 @@
 ﻿"use client"
 import { personal } from "@/data"
 import ThemeToggle from "@/components/ThemeToggle"
-const navItems = ["About", "Skills", "Projects", "Experience", "Certifications"]
+const navItems = ["About", "Skills", "Projects", "Experience", "Education", "Certifications"]
 export default function Sidebar() {
   return (
     <aside style={{ position:"fixed", top:0, left:0, height:"100vh", width:"256px", display:"flex", flexDirection:"column", padding:"32px 24px", borderRight:"1px solid var(--border)", backgroundColor:"var(--canvas)", overflowY:"auto" }}>
