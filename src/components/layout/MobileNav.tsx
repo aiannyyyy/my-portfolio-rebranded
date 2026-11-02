@@ -25,7 +25,7 @@ export default function MobileNav() {
       {open && (
         <div style={{ marginTop:"12px", display:"flex", flexDirection:"column", gap:"4px" }}>
           {navItems.map((item) => (
-            <a key={item} href={"#"+item.toLowerCase()} onClick={() => setOpen(false)} style={{ padding:"10px 12px", borderRadius:"6px", color:"var(--muted)", textDecoration:"none", fontSize:"0.875rem", backgroundColor:"var(--surface)" }}>
+            <a key={item} href={"/#"+item.toLowerCase()} onClick={() => setOpen(false)} style={{ padding:"10px 12px", borderRadius:"6px", color:"var(--muted)", textDecoration:"none", fontSize:"0.875rem", backgroundColor:"var(--surface)" }}>
               {item}
             </a>
           ))}
