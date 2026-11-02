@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next"
+import Script from "next/script"
 import { ThemeProvider } from "next-themes"
 import { personal } from "@/data"
 import "./globals.css"
@@ -31,6 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
+        {/* Vercel Web Analytics: cookieless page-view counts, served from this site once Analytics is enabled in Vercel. */}
+        {process.env.NODE_ENV === "production" && <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />}
       </body>
     </html>
   )
