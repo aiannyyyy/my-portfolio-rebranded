@@ -79,13 +79,29 @@ export default function ImageLightbox({ images, captions, startIndex = 0, label,
         onTouchEnd={(e) => onTouchEnd(e.changedTouches[0].clientX)}
         style={{ position:"relative", flex:1, minHeight:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"0 12px" }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={images[index]}
-          alt={caption ?? `${label} screenshot ${index + 1}`}
-          onClick={(e) => e.stopPropagation()}
-          style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain", borderRadius:"6px", display:"block" }}
-        />
+        {images[index].endsWith(".mp4") ? (
+          <video
+            key={images[index]}
+            src={images[index]}
+            poster={images[index].replace(/\.mp4$/, "-poster.jpg")}
+            aria-label={caption ?? `${label} demo video`}
+            onClick={(e) => e.stopPropagation()}
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain", borderRadius:"6px", display:"block", backgroundColor:"#000000" }}
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={images[index]}
+            alt={caption ?? `${label} screenshot ${index + 1}`}
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth:"100%", maxHeight:"100%", objectFit:"contain", borderRadius:"6px", display:"block" }}
+          />
+        )}
         {count > 1 && (
           <>
             <button onClick={(e) => { e.stopPropagation(); prev() }} aria-label="Previous image" style={{ ...navButton, left:"8px" }}>‹</button>
