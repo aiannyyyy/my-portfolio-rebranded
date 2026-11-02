@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import PortfolioLayout from "@/components/layout/PortfolioLayout"
+import CaseStudyScreens from "@/components/CaseStudyScreens"
 import { caseStudies, getCaseStudy } from "@/data"
 
 type Props = { params: Promise<{ slug: string }> }
@@ -65,16 +66,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       <section style={section}>
         <h2 style={heading}>Screens (demo, sample data)</h2>
-        <div style={{ display:"grid", gridTemplateColumns:`repeat(auto-fill, minmax(${cs.imageLayout === "phone" ? "130px" : "260px"}, 1fr))`, gap:"16px" }}>
-          {cs.images.map((src, i) => (
-            <figure key={src} style={{ margin:0 }}>
-              <a href={src} target="_blank" rel="noopener noreferrer">
-                <img src={src} alt={cs.imageCaptions[i]} loading="lazy" style={{ width:"100%", height:"auto", borderRadius:"8px", border:"1px solid var(--border)", display:"block" }} />
-              </a>
-              <figcaption style={{ fontSize:"0.75rem", color:"var(--muted)", marginTop:"6px", lineHeight:1.5 }}>{cs.imageCaptions[i]}</figcaption>
-            </figure>
-          ))}
-        </div>
+        <CaseStudyScreens title={cs.title} images={cs.images} captions={cs.imageCaptions} layout={cs.imageLayout} />
       </section>
 
       <section style={section}>
