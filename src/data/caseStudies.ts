@@ -189,6 +189,59 @@ export const caseStudies: CaseStudy[] = [
     images: ["/Corporate Dashboard/1.png", "/Corporate Dashboard/2.png", "/Corporate Dashboard/3.png", "/Corporate Dashboard/4.png", "/Corporate Dashboard/5.png", "/Corporate Dashboard/6.png"],
     imageCaptions: ["Laboratory overview with team chat open", "Data-entry statistics and common errors", "Follow-up recalls and patient details", "IT job orders", "Intranet files: starred and shared", "Monthly samples, year over year"],
   },
+  {
+    slug: "file-management-system",
+    title: "File Management System",
+    tagline: "An intranet for sharing documents across departments: personal folders, department libraries, previews, sharing, version history, and built-in team chat.",
+    demoUrl: "https://file-management-system-avhs.vercel.app",
+    repoNote: "Built for internal use at Newborn Screening Center - Southern Luzon, so the source code is private. The demo runs the real frontend with sample files and made-up people; browsing and previews work, and changes are turned off.",
+    role: "Design and full-stack development",
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL (Supabase)", "Multer", "Socket.IO", "JWT", "Vercel", "Render"],
+    problem: [
+      "Shared documents were scattered across personal drives, email attachments, and chat threads, so staff often worked from old copies.",
+      "Each department needed its own library of forms and procedures, while still being able to share single files with other teams.",
+      "Quick questions about a document happened in separate chat apps, away from the file itself.",
+    ],
+    features: [
+      { title: "Folders and libraries", body: "Personal folders with breadcrumbs, plus department categories (policies, laboratory, HR, training, IT guides) with their own folder trees." },
+      { title: "Upload with conflict handling", body: "Single, multiple, and bulk uploads. When a file name already exists, you choose to replace it, keep both, or save it as a new version." },
+      { title: "Previews and versions", body: "PDFs, images, and text open in the browser. Earlier versions of a file can be listed, restored, or removed." },
+      { title: "Move with undo", body: "Move files and folders in bulk with a preview of conflicts first, and undo a move batch within 24 hours." },
+      { title: "Sharing and activity", body: "Share files with specific coworkers, star the ones you use often, get notifications when something is shared with you, and see recent activity on the dashboard." },
+      { title: "Team chat", body: "Direct messages with file attachments, unread counts, and typing indicators, delivered in real time over Socket.IO." },
+    ],
+    architecture: [
+      {
+        title: "A request",
+        steps: [
+          { label: "React + TypeScript (Vercel)", detail: "Dashboard, Files, and Categories pages, with global search across all three" },
+          { label: "Express API (Render)", detail: "About 130 routes for auth, files, categories, moves, sharing, notifications, and chat" },
+          { label: "PostgreSQL on Supabase", detail: "Users, folders, files, categories, shares, activity logs, and messages" },
+          { label: "File storage", detail: "Multer handles uploads; folders and selections download as ZIP archives" },
+        ],
+      },
+      {
+        title: "Real-time",
+        steps: [
+          { label: "Socket.IO", detail: "Chat messages, typing indicators, and online status pushed to connected users" },
+        ],
+      },
+    ],
+    security: [
+      { title: "Hashed passwords", body: "Passwords are hashed with bcrypt at sign-up and checked with bcrypt at login; the app signs a JWT for the session." },
+      { title: "Safer uploads", body: "Uploads go to a temporary location first, and name conflicts need an explicit choice instead of silently overwriting someone's file." },
+      { title: "Protected PDFs (built, currently off)", body: "Code using qpdf can lock downloaded PDFs against editing and copying with an owner password; it's switched off until qpdf is installed on the server." },
+      { title: "A demo with no real data", body: "The portfolio build answers every API call in the browser with made-up files and people, previews bundled sample files, and turns off all changes. It never connects to the real server or database." },
+    ],
+    engineering: [
+      "Frontend on Vercel, API on Render, and PostgreSQL on Supabase, deployed separately.",
+      "A mock layer for the portfolio intercepts fetch and axios, so the full UI runs with sample data and no server.",
+      "One preview helper serves both the real file URL and the demo's sample files, so the demo needed no changes to how previews render.",
+    ],
+    imageLayout: "desktop",
+    images: ["/File Management System/1.png", "/File Management System/2.png", "/File Management System/3.png", "/File Management System/4.png", "/File Management System/5.png", "/File Management System/6.png"],
+    imageCaptions: ["Dashboard: starred, shared, and activity", "Folders with breadcrumbs", "Image preview", "Department library folder", "Team chat", "Search across files and categories"],
+  },
 ]
 
 export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug)
