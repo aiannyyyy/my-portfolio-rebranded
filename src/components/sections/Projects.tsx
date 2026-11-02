@@ -17,9 +17,17 @@ export default function Projects() {
               <div style={{ display:"flex", alignItems:"center", gap:"8px" }}>
                 <h3 style={{ fontSize:"0.95rem", fontWeight:600, color:"var(--text)", margin:0 }}>{project.title}</h3>
               </div>
-              <div style={{ display:"flex", gap:"8px", alignItems:"center" }}>
-                {project.caseStudyUrl && <a href={project.caseStudyUrl} style={{ fontSize:"0.75rem", padding:"4px 10px", borderRadius:"6px", border:"1px solid var(--border)", color:"var(--accent)", textDecoration:"none" }}>Case study</a>}
+              <div style={{ display:"flex", gap:"8px", alignItems:"center", flexWrap:"wrap" }}>
+                {project.caseStudyUrl &&<a href={project.caseStudyUrl} style={{ fontSize:"0.75rem", padding:"4px 10px", borderRadius:"6px", border:"1px solid var(--border)", color:"var(--accent)", textDecoration:"none" }}>Case study</a>}
                 {project.repoUrl && <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize:"0.75rem", padding:"4px 10px", borderRadius:"6px", border:"1px solid var(--border)", color:"var(--accent)", textDecoration:"none" }}>Repo</a>}
+                {project.videoUrl && (
+                  <button
+                    onClick={() => setGallery({ title: `${project.title} (demo tour)`, images: [project.videoUrl!] })}
+                    style={{ fontSize:"0.75rem", padding:"4px 10px", borderRadius:"6px", border:"1px solid var(--accent)", backgroundColor:"transparent", color:"var(--accent)", cursor:"pointer" }}
+                  >
+                    ▶ Watch demo
+                  </button>
+                )}
                 {project.images && project.images.length > 0 && (
                   <button
                     onClick={() => setGallery({ title: project.title, images: project.images! })}

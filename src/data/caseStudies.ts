@@ -13,6 +13,8 @@ export type CaseStudy = {
   engineering: string[]
   /** "phone" for portrait phone screenshots, "desktop" for wide ones. */
   imageLayout: "phone" | "desktop"
+  // Short silent tour recorded from the live demo; the poster is the same path with -poster.jpg.
+  video?: string
   images: string[]
   imageCaptions: string[]
 }
@@ -78,6 +80,7 @@ export const caseStudies: CaseStudy[] = [
       "Batched the scoring updates so the daily run went from about 146 seconds to 7, well inside the hosting time limit.",
     ],
     imageLayout: "phone",
+    video: "/demo-videos/job-assistant.mp4",
     images: ["/Job Assistant/1.png", "/Job Assistant/2.png", "/Job Assistant/3.png", "/Job Assistant/4.png", "/Job Assistant/5.png"],
     imageCaptions: ["Ranked jobs with salary and schedule labels", "Why a job scored what it did", "Scam warnings on a sample post", "Tracker with follow-up reminders", "Answer bank for form questions"],
   },
@@ -132,6 +135,7 @@ export const caseStudies: CaseStudy[] = [
       "A demo mode, switched on with one environment variable, answers every API call in the browser with sample data.",
     ],
     imageLayout: "desktop",
+    video: "/demo-videos/task-management-app.mp4",
     images: ["/Task Management App/1.png", "/Task Management App/2.png", "/Task Management App/3.png", "/Task Management App/4.png", "/Task Management App/5.png"],
     imageCaptions: ["Team workspace board", "Task details with assignee and attachment", "Calendar of due dates", "Statistics view", "Dark mode"],
   },
@@ -186,6 +190,7 @@ export const caseStudies: CaseStudy[] = [
       "117 commits over five months, with the same codebase deployed as a web app and an Electron desktop app.",
     ],
     imageLayout: "desktop",
+    video: "/demo-videos/corporate-dashboard.mp4",
     images: ["/Corporate Dashboard/1.png", "/Corporate Dashboard/2.png", "/Corporate Dashboard/3.png", "/Corporate Dashboard/4.png", "/Corporate Dashboard/5.png", "/Corporate Dashboard/6.png"],
     imageCaptions: ["Laboratory overview with team chat open", "Data-entry statistics and common errors", "Follow-up recalls and patient details", "IT job orders", "Intranet files: starred and shared", "Monthly samples, year over year"],
   },
@@ -239,6 +244,7 @@ export const caseStudies: CaseStudy[] = [
       "One preview helper serves both the real file URL and the demo's sample files, so the demo needed no changes to how previews render.",
     ],
     imageLayout: "desktop",
+    video: "/demo-videos/file-management-system.mp4",
     images: ["/File Management System/1.png", "/File Management System/2.png", "/File Management System/3.png", "/File Management System/4.png", "/File Management System/5.png", "/File Management System/6.png"],
     imageCaptions: ["Dashboard: starred, shared, and activity", "Folders with breadcrumbs", "Image preview", "Department library folder", "Team chat", "Search across files and categories"],
   },

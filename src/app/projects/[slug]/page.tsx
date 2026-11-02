@@ -64,6 +64,22 @@ export default async function CaseStudyPage({ params }: Props) {
         </ul>
       </section>
 
+      {cs.video && (
+        <section style={section}>
+          <h2 style={heading}>Quick tour (silent, sample data)</h2>
+          <video
+            src={cs.video}
+            poster={cs.video.replace(/\.mp4$/, "-poster.jpg")}
+            aria-label={`${cs.title} demo tour`}
+            controls
+            muted
+            playsInline
+            preload="metadata"
+            style={{ display:"block", width:"100%", maxWidth: cs.imageLayout === "phone" ? "320px" : "860px", height:"auto", borderRadius:"8px", border:"1px solid var(--border)", backgroundColor:"#000000" }}
+          />
+        </section>
+      )}
+
       <section style={section}>
         <h2 style={heading}>Screens (demo, sample data)</h2>
         <CaseStudyScreens title={cs.title} images={cs.images} captions={cs.imageCaptions} layout={cs.imageLayout} />
