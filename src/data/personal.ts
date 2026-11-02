@@ -15,7 +15,7 @@
   availability: "Open to remote or hybrid roles in the Philippines, and remote roles overseas.",
   workingHours: "Based in the Philippines (UTC+8), flexible with working hours, including US time zones.",
   // Google Calendar appointment page; the "Book a call" button stays hidden while empty.
-  bookingUrl: "",
+  bookingUrl: "https://calendar.app.google/yShJ4xfBf5J94r92A",
   callNote: "Currently working Mon–Fri, 8am–5pm (UTC+8). Calls before or after work, or on weekends, are easiest for me.",
   highlights: [
     { value: "2+ yrs", label: "building production web and desktop apps" },
