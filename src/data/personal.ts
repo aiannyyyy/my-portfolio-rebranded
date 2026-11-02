@@ -10,4 +10,16 @@
   resumeUrl: "/JohnAdrianTicatic_CV.pdf",
   coverLetterUrl: "/John_Adrian_Ticatic_Cover_Letter.pdf",
   avatarUrl: "/image.jpg",
+  siteUrl: "https://my-portfolio-rebranded.vercel.app",
+  headline: "Full-Stack Developer · React, Next.js, Node.js",
+  availability: "Open to remote or hybrid roles in the Philippines, and remote roles overseas.",
+  workingHours: "Based in the Philippines (UTC+8), flexible with working hours, including US time zones.",
+  // Google Calendar appointment page; the "Book a call" button stays hidden while empty.
+  bookingUrl: "",
+  highlights: [
+    { value: "2+ yrs", label: "building production web and desktop apps" },
+    { value: "4", label: "live demos you can try with sample data" },
+    { value: "40%", label: "faster system performance after query optimization" },
+    { value: "800+", label: "automated tests in my Job Application Assistant" },
+  ],
 }

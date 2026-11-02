@@ -1,10 +1,23 @@
 ﻿import type { Metadata } from "next"
 import { ThemeProvider } from "next-themes"
+import { personal } from "@/data"
 import "./globals.css"
 
+const description = `${personal.headline}. ${personal.availability} Live demos, case studies and CV.`
+
 export const metadata: Metadata = {
+  metadataBase: new URL(personal.siteUrl),
   title: "John Adrian Ticatic - Software Engineer",
-  description: "Portfolio of John Adrian Ticatic, Software Engineer.",
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "profile",
+    url: "/",
+    siteName: personal.name,
+    title: `${personal.name} - Full-Stack Developer`,
+    description,
+  },
+  twitter: { card: "summary_large_image", title: `${personal.name} - Full-Stack Developer`, description },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",

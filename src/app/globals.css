@@ -32,11 +32,19 @@
 /* Desktop — show sidebar, hide mobile nav */
 .desktop-sidebar { display: block; }
 .mobile-nav { display: none !important; }
-.main-content { margin-left: 256px; }
+.main-content { margin-left: 256px; padding-bottom: 96px; }
+.mobile-only { display: none !important; }
+.chat-label-short { display: none; }
 
 /* Mobile — hide sidebar, show mobile nav */
 @media (max-width: 768px) {
   .desktop-sidebar { display: none !important; }
   .mobile-nav { display: block !important; }
   .main-content { margin-left: 0 !important; }
+  .mobile-only { display: flex !important; }
+}
+
+@media (max-width: 480px) {
+  .chat-label-long { display: none; }
+  .chat-label-short { display: inline; }
 }
