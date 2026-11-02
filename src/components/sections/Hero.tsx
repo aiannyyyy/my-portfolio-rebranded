@@ -53,7 +53,7 @@ export default function Hero() {
         <a href={mailto} style={secondary}>Email me</a>
         <button onClick={copyEmail} style={secondary} aria-live="polite">{copied ? "Email copied" : "Copy email"}</button>
         {personal.bookingUrl && <a href={personal.bookingUrl} target="_blank" rel="noopener noreferrer" style={secondary}>Book a call</a>}
-        <a href={personal.resumeUrl} target="_blank" rel="noopener noreferrer" style={secondary}>Download CV</a>
+        <a href={personal.resumeUrl} download="JohnAdrianTicatic_CV.pdf" style={secondary}>Download CV</a>
       </div>
       <p style={{ fontSize:"0.8rem", lineHeight:1.6, color:"var(--muted)", margin:"12px 0 0" }}>{personal.callNote}</p>
     </section>
