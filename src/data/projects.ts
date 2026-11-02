@@ -1,5 +1,19 @@
 ﻿export const projects = [
   {
+    id: "p0",
+    title: "Job Application Assistant",
+    description: "A private, phone-first app that finds remote developer jobs daily, ranks them, flags scam posts, and helps prepare honest, tailored applications. It never applies on its own.",
+    explanation: "Pulls jobs from 8 official job APIs and RSS feeds every day, filters out roles not open to the Philippines, and scores the rest with a visible breakdown. Facebook posts and poster screenshots can be imported with OCR and scam checks. Tailored CVs are validated against my master resume so nothing is invented. Personal data is encrypted with AES-256-GCM, login is GitHub (my ID only, 2FA) plus an app password, and every route is denied by default. The source is private; the live demo runs the same code on sample data.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM", "Zod", "Tailwind CSS", "Vitest", "Playwright", "Vercel"],
+    repoUrl: "",
+    liveUrl: "https://job-assistant-demo.vercel.app",
+    caseStudyUrl: "/projects/job-assistant",
+    images: ["/Job Assistant/1.png", "/Job Assistant/2.png", "/Job Assistant/3.png", "/Job Assistant/4.png", "/Job Assistant/5.png"],
+    difficulty: "Advanced",
+    ongoing: false,
+    featured: true,
+  },
+  {
     id: "p1",
     title: "Task Management App",
     description: "A full-stack MERN task management application with drag-and-drop task organization, workspace collaboration, and real-time updates.",

@@ -22,7 +22,7 @@ export default function Sidebar() {
       </div>
       <nav style={{ display:"flex", flexDirection:"column", gap:"4px", flex:1 }}>
         {navItems.map((item) => (
-          <a key={item} href={"#"+item.toLowerCase()} style={{ fontSize:"0.875rem", padding:"8px 12px", borderRadius:"6px", color:"var(--muted)", textDecoration:"none" }}>{item}</a>
+          <a key={item} href={"/#"+item.toLowerCase()} style={{ fontSize:"0.875rem", padding:"8px 12px", borderRadius:"6px", color:"var(--muted)", textDecoration:"none" }}>{item}</a>
         ))}
       </nav>
       <div style={{ marginTop:"auto", paddingTop:"16px", display:"flex", justifyContent:"center", borderTop:"1px solid var(--border)" }}>
