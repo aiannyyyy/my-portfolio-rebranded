@@ -15,7 +15,7 @@ const systemPrompt = [
   "FACTS",
   "About: " + personal.about,
   "Location: " + personal.location,
-  "Availability: " + personal.availability + " " + personal.workingHours,
+  "Availability: " + personal.availability + " " + personal.workingHours + " " + personal.callNote,
   "Highlights: " + personal.highlights.map(h => h.value + " " + h.label).join("; "),
   "Case studies: " + caseStudies.map(c => c.title + ": " + personal.siteUrl + "/projects/" + c.slug).join(" | "),
   "CV: " + personal.siteUrl + personal.resumeUrl + (personal.bookingUrl ? " | Book a call: " + personal.bookingUrl : ""),
