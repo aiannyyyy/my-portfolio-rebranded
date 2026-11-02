@@ -7,10 +7,11 @@ interface Message {
 }
 
 const suggestions = [
+  "Is he open to remote work?",
   "What technologies does he know?",
-  "Tell me about his projects",
+  "Which projects can I try live?",
   "What is his work experience?",
-  "Does he have any certifications?",
+  "How do I contact him?",
 ]
 
 function formatMessage(text: string) {
@@ -98,9 +99,10 @@ export default function ChatWidget() {
       )}
       <button
         onClick={() => setOpen(!open)}
-        style={{ width:"52px", height:"52px", borderRadius:"50%", backgroundColor:"var(--accent)", color:"#ffffff", border:"none", cursor:"pointer", fontSize:"1.4rem", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 4px 16px rgba(37,99,235,0.4)", marginLeft:"auto" }}
+        aria-label={open ? "Close the portfolio assistant" : "Ask the portfolio assistant about John"}
+        style={{ height:"48px", minWidth:"48px", padding:"0 18px", borderRadius:"24px", backgroundColor:"var(--accent)", color:"#ffffff", border:"none", cursor:"pointer", fontSize:"0.875rem", fontWeight:600, display:"flex", alignItems:"center", justifyContent:"center", gap:"6px", boxShadow:"0 4px 16px rgba(37,99,235,0.4)", marginLeft:"auto" }}
       >
-        {open ? "X" : "?"}
+        {open ? "Close" : <><span className="chat-label-long">Ask about John</span><span className="chat-label-short">Ask</span></>}
       </button>
     </div>
   )

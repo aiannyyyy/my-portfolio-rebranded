@@ -1,5 +1,5 @@
 import Groq from "groq-sdk"
-import { personal, skills, projects, experience, certifications, education } from "@/data"
+import { personal, skills, projects, experience, certifications, education, caseStudies } from "@/data"
 
 const MAX_HISTORY = 10
 const MAX_MESSAGE_LENGTH = 500
@@ -15,6 +15,10 @@ const systemPrompt = [
   "FACTS",
   "About: " + personal.about,
   "Location: " + personal.location,
+  "Availability: " + personal.availability + " " + personal.workingHours,
+  "Highlights: " + personal.highlights.map(h => h.value + " " + h.label).join("; "),
+  "Case studies: " + caseStudies.map(c => c.title + ": " + personal.siteUrl + "/projects/" + c.slug).join(" | "),
+  "CV: " + personal.siteUrl + personal.resumeUrl + (personal.bookingUrl ? " | Book a call: " + personal.bookingUrl : ""),
   "Contact: " + personal.email + " | GitHub: " + personal.github + " | LinkedIn: " + personal.linkedin,
   "Skills: " + skills.map(s => s.category + ": " + s.items.join(", ")).join(". "),
   "Experience: " + experience.map(e => e.role + " at " + e.company + " (" + e.period + "): " + e.description.join("; ")).join(" | "),
