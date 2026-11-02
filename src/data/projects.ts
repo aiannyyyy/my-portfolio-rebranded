@@ -47,6 +47,8 @@
     tech: ["React", "TypeScript", "Node.js", "Recharts", "Oracle DB", "MySQL", "Electron.js", "WebSockets"],
     repoUrl: "",
     liveUrl: "https://nscsl-dashboard.vercel.app/",
+    caseStudyUrl: "/projects/corporate-dashboard",
+    images: ["/Corporate Dashboard/1.png", "/Corporate Dashboard/2.png", "/Corporate Dashboard/3.png", "/Corporate Dashboard/4.png", "/Corporate Dashboard/5.png", "/Corporate Dashboard/6.png"],
     difficulty: "Advanced",
     ongoing: false,
     featured: true,

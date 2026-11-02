@@ -135,6 +135,60 @@ export const caseStudies: CaseStudy[] = [
     images: ["/Task Management App/1.png", "/Task Management App/2.png", "/Task Management App/3.png", "/Task Management App/4.png", "/Task Management App/5.png"],
     imageCaptions: ["Team workspace board", "Task details with assignee and attachment", "Calendar of due dates", "Statistics view", "Dark mode"],
   },
+  {
+    slug: "corporate-dashboard",
+    title: "Corporate Dashboard",
+    tagline: "A multi-department dashboard for a newborn screening center: sample and facility KPIs, laboratory turnaround tracking, patient follow-ups, IT job orders, an intranet file system, and team chat in one app.",
+    demoUrl: "https://nscsl-dashboard.vercel.app",
+    repoNote: "Built for internal use at Newborn Screening Center - Southern Luzon, so the source code is private. The demo runs the real frontend with mock data: every patient, staff member, and number in it is made up.",
+    role: "Design and full-stack development, from database queries to the desktop build",
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "Recharts", "Socket.IO", "Node.js", "Express", "Oracle DB", "MySQL", "JWT", "Electron"],
+    problem: [
+      "The center's legacy laboratory system was no longer supported, and each department pulled its numbers by hand from different places.",
+      "Program, laboratory, follow-up, and IT staff needed live views of their own work: samples received, turnaround times, recalls, and tickets.",
+      "Data lived in two databases, Oracle for laboratory records and MySQL for the newer internal apps, so nobody had one picture of operations.",
+    ],
+    features: [
+      { title: "Program (PDO) KPIs", body: "Samples received and screened, unsatisfactory rates, facility performance, visits, and per-province totals, with year-over-year charts that export to image or Excel." },
+      { title: "Laboratory tracking", body: "Daily received samples, a turnaround pipeline from collection to release (average, median, and mode days), data-entry statistics and speed per encoder, and the most common entry errors." },
+      { title: "Follow-up", body: "Recall activity per follow-up nurse, patient details by test result, logbook endorsements between departments, urgent cases, and a shared calendar." },
+      { title: "IT job orders", body: "Tickets move from pending approval to queued, assigned, in progress, resolved, and closed. Department approvers sign off, and a floating tracker shows the status of your open tickets." },
+      { title: "Intranet files", body: "Categories and folders for shared documents, with starring, sharing between staff, previews, and PDF stamping." },
+      { title: "Real-time and desktop", body: "Socket.IO powers team chat and notifications, and the same app also ships as an Electron desktop build for workstations." },
+    ],
+    architecture: [
+      {
+        title: "A request",
+        steps: [
+          { label: "React + TypeScript (web or Electron)", detail: "TanStack Query caches and refreshes each module's data" },
+          { label: "Express API", detail: "JWT middleware, then routes grouped by department (PDO, Laboratory, Follow-up, IT, Intranet, Admin)" },
+          { label: "Oracle and MySQL connection pools", detail: "Laboratory records from Oracle; users, job orders, and intranet data in MySQL" },
+        ],
+      },
+      {
+        title: "Background and real-time",
+        steps: [
+          { label: "Socket.IO", detail: "Chat messages and notifications pushed to connected staff" },
+          { label: "Hourly sync (node-cron)", detail: "Keeps facility status fields such as last sample sent up to date" },
+        ],
+      },
+    ],
+    security: [
+      { title: "Hashed passwords", body: "User passwords are stored as bcrypt hashes; a one-time migration script converted the old stored passwords." },
+      { title: "Token auth", body: "API routes check a signed JWT, and the frontend keeps the user's role and department to decide which menus and approval actions they see." },
+      { title: "Department permissions", body: "Each module checks the user's department: its own staff can create, edit, delete, and export, and everyone else gets a read-only view. Job order approvals go to the requesting department's approvers." },
+      { title: "A demo with no real data", body: "The portfolio build swaps the HTTP layer for an in-browser mock with made-up fixtures, and hides real staff names behind labels like 'Encoder A'. It never connects to the center's databases." },
+    ],
+    engineering: [
+      "Organized by department: each module has its own routes, controllers, services, and React Query hooks.",
+      "Charts export to PNG (html2canvas) and tables to Excel (xlsx); the backend generates PDFs with PDFKit.",
+      "A mock mode, switched on with one environment variable, routes every API call to local fixtures so the full UI runs without a server.",
+      "117 commits over five months, with the same codebase deployed as a web app and an Electron desktop app.",
+    ],
+    imageLayout: "desktop",
+    images: ["/Corporate Dashboard/1.png", "/Corporate Dashboard/2.png", "/Corporate Dashboard/3.png", "/Corporate Dashboard/4.png", "/Corporate Dashboard/5.png", "/Corporate Dashboard/6.png"],
+    imageCaptions: ["Laboratory overview with team chat open", "Data-entry statistics and common errors", "Follow-up recalls and patient details", "IT job orders", "Intranet files: starred and shared", "Monthly samples, year over year"],
+  },
 ]
 
 export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug)
