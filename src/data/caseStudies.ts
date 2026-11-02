@@ -1,48 +1,140 @@
-export const jobAssistantCaseStudy = {
-  slug: "job-assistant",
-  title: "Job Application Assistant",
-  tagline: "A private, phone-first web app that finds remote developer jobs every day, ranks them, flags scams, and helps me prepare honest, tailored applications. It never applies on its own.",
-  demoUrl: "https://job-assistant-demo.vercel.app",
-  repoNote: "The source code is private because the real app holds my personal data. The demo is the same codebase running on sample data.",
-  role: "Solo: design, build, security, testing, and deployment",
-  stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL (Neon)", "Drizzle ORM", "Zod", "Tailwind CSS", "Vitest", "Playwright", "GitHub Actions", "Vercel"],
-  problem: [
-    "Looking for remote work from the Philippines means checking many job boards, and most listings turn out to be US-only, senior, or onsite.",
-    "Jobs shared on Facebook groups and as poster images are hard to track, and some are scams asking for fees or IDs.",
-    "Tailoring a CV for every role takes time, and it's easy to drift into claiming skills I don't have.",
-    "After applying, follow-ups and interview details get lost across email and chat.",
-  ],
-  features: [
-    { title: "Daily job feed", body: "A scheduled job pulls from 8 official job APIs and RSS feeds (no scraping, no logging into job sites), removes duplicates, drops jobs that aren't open to the Philippines, and scores the rest from 0 to 100 with a visible breakdown." },
-    { title: "Salary and schedule labels", body: "Parses salaries in any currency and period (hourly, monthly, annual), converts them to monthly PHP, and marks each job as target, negotiable, below range, or unknown. Detects weekend work and rotating shifts." },
-    { title: "Manual import with scam checks", body: "Paste a Facebook post or upload a poster screenshot. OCR runs inside the app, fields are pre-filled for review, and posts that ask for fees, IDs, or Telegram-only contact get a visible warning." },
-    { title: "Company check", body: "Checks the company website, domain age via public RDAP, and whether the contact email matches the domain, then builds search links I open myself. A helper verdict, never a guarantee." },
-    { title: "Honest tailoring", body: "Builds a prompt with my contact details masked as placeholders, I run it in my own Claude Project, and paste the result back. A validator flags any skill, employer, date, or number that isn't in my master resume before I can export to Word or PDF." },
-    { title: "Tracker and answer bank", body: "Pipeline from applied to offer, follow-up reminders after 7 days, a ghosted suggestion after 30, calendar files for interviews, and saved answers to common form questions with one-tap copy." },
-  ],
-  architecture: [
-    { label: "Phone or laptop", detail: "Installable web app, built for 360px screens first" },
-    { label: "Proxy (every request)", detail: "Deny by default, strict CSP with nonces, CSRF check, security headers" },
-    { label: "Sign-in", detail: "GitHub OAuth (PKCE, my numeric ID only, 2FA required), then an app password hashed with argon2id" },
-    { label: "Next.js App Router", detail: "Server components, server actions, and route handlers; Zod validates every input" },
-    { label: "Neon Postgres via Drizzle", detail: "Personal fields and files encrypted with AES-256-GCM before they reach the database" },
-  ],
-  pipeline: ["Vercel Cron, once a day", "8 job APIs and RSS feeds (allowlisted domains, timeouts, size limits)", "Validate, sanitize, dedupe", "Hard filters and scoring", "Saved for the morning"],
-  security: [
-    { title: "Encrypted at rest", body: "AES-256-GCM with a random IV per value and the column name bound in as associated data, so values can't be swapped between rows. Uploaded files are encrypted the same way." },
-    { title: "Deny by default", body: "Every route is private unless listed as public, and every handler re-checks the session. A test fails the build if a new route isn't covered." },
-    { title: "Two-step login", body: "GitHub sign-in restricted to one numeric user ID with 2FA enforced, followed by a rate-limited app password. Sessions are hashed server-side with idle and absolute timeouts." },
-    { title: "PII masking", body: "Name, email, phone, and links are replaced with placeholders before any prompt leaves the app, and put back locally afterwards." },
-    { title: "Untrusted input", body: "Job text is stripped of HTML and never followed as instructions. Uploads are checked by magic bytes, re-encoded, and stripped of metadata." },
-    { title: "Safe demo", body: "The public demo runs the same code with sample data. It refuses every change in one place, and refuses to start if it's pointed at a database holding real data." },
-  ],
-  engineering: [
-    "Built in phases, each on its own branch with a pull request, a written review checklist, and a release tag.",
-    "CI on every push: lint, type check, unit and integration tests, build, dependency audit, and secret scanning.",
-    "500+ unit and integration tests, plus 320+ end-to-end tests on three phone sizes and desktop, with accessibility checks.",
-    "23 architecture decision records explaining choices like the encryption scheme and hosting.",
-    "Batched the scoring updates so the daily run went from about 146 seconds to 7, well inside the hosting time limit.",
-  ],
-  images: ["/Job Assistant/1.png", "/Job Assistant/2.png", "/Job Assistant/3.png", "/Job Assistant/4.png", "/Job Assistant/5.png"],
-  imageCaptions: ["Ranked jobs with salary and schedule labels", "Why a job scored what it did", "Scam warnings on a sample post", "Tracker with follow-up reminders", "Answer bank for form questions"],
+export type CaseStudy = {
+  slug: string
+  title: string
+  tagline: string
+  demoUrl: string
+  repoNote: string
+  role: string
+  stack: string[]
+  problem: string[]
+  features: { title: string; body: string }[]
+  architecture: { title: string; steps: { label: string; detail?: string }[] }[]
+  security: { title: string; body: string }[]
+  engineering: string[]
+  /** "phone" for portrait phone screenshots, "desktop" for wide ones. */
+  imageLayout: "phone" | "desktop"
+  images: string[]
+  imageCaptions: string[]
 }
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "job-assistant",
+    title: "Job Application Assistant",
+    tagline: "A private, phone-first web app that finds remote developer jobs every day, ranks them, flags scams, and helps me prepare honest, tailored applications. It never applies on its own.",
+    demoUrl: "https://job-assistant-demo.vercel.app",
+    repoNote: "The source code is private because the real app holds my personal data. The demo is the same codebase running on sample data.",
+    role: "Solo: design, build, security, testing, and deployment",
+    stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL (Neon)", "Drizzle ORM", "Zod", "Tailwind CSS", "Vitest", "Playwright", "GitHub Actions", "Vercel"],
+    problem: [
+      "Looking for remote work from the Philippines means checking many job boards, and most listings turn out to be US-only, senior, or onsite.",
+      "Jobs shared on Facebook groups and as poster images are hard to track, and some are scams asking for fees or IDs.",
+      "Tailoring a CV for every role takes time, and it's easy to drift into claiming skills I don't have.",
+      "After applying, follow-ups and interview details get lost across email and chat.",
+    ],
+    features: [
+      { title: "Daily job feed", body: "A scheduled job pulls from 8 official job APIs and RSS feeds (no scraping, no logging into job sites), removes duplicates, drops jobs that aren't open to the Philippines, and scores the rest from 0 to 100 with a visible breakdown." },
+      { title: "Salary and schedule labels", body: "Parses salaries in any currency and period (hourly, monthly, annual), converts them to monthly PHP, and marks each job as target, negotiable, below range, or unknown. Detects weekend work and rotating shifts." },
+      { title: "Manual import with scam checks", body: "Paste a Facebook post or upload a poster screenshot. OCR runs inside the app, fields are pre-filled for review, and posts that ask for fees, IDs, or Telegram-only contact get a visible warning." },
+      { title: "Company check", body: "Checks the company website, domain age via public RDAP, and whether the contact email matches the domain, then builds search links I open myself. A helper verdict, never a guarantee." },
+      { title: "Honest tailoring", body: "Builds a prompt with my contact details masked as placeholders, I run it in my own Claude Project, and paste the result back. A validator flags any skill, employer, date, or number that isn't in my master resume before I can export to Word or PDF." },
+      { title: "Tracker and answer bank", body: "Pipeline from applied to offer, follow-up reminders after 7 days, a ghosted suggestion after 30, calendar files for interviews, and saved answers to common form questions with one-tap copy." },
+    ],
+    architecture: [
+      {
+        title: "A request",
+        steps: [
+          { label: "Phone or laptop", detail: "Installable web app, built for 360px screens first" },
+          { label: "Proxy (every request)", detail: "Deny by default, strict CSP with nonces, CSRF check, security headers" },
+          { label: "Sign-in", detail: "GitHub OAuth (PKCE, my numeric ID only, 2FA required), then an app password hashed with argon2id" },
+          { label: "Next.js App Router", detail: "Server components, server actions, and route handlers; Zod validates every input" },
+          { label: "Neon Postgres via Drizzle", detail: "Personal fields and files encrypted with AES-256-GCM before they reach the database" },
+        ],
+      },
+      {
+        title: "The daily fetch",
+        steps: [
+          { label: "Vercel Cron, once a day" },
+          { label: "8 job APIs and RSS feeds (allowlisted domains, timeouts, size limits)" },
+          { label: "Validate, sanitize, dedupe" },
+          { label: "Hard filters and scoring" },
+          { label: "Saved for the morning" },
+        ],
+      },
+    ],
+    security: [
+      { title: "Encrypted at rest", body: "AES-256-GCM with a random IV per value and the column name bound in as associated data, so values can't be swapped between rows. Uploaded files are encrypted the same way." },
+      { title: "Deny by default", body: "Every route is private unless listed as public, and every handler re-checks the session. A test fails the build if a new route isn't covered." },
+      { title: "Two-step login", body: "GitHub sign-in restricted to one numeric user ID with 2FA enforced, followed by a rate-limited app password. Sessions are hashed server-side with idle and absolute timeouts." },
+      { title: "PII masking", body: "Name, email, phone, and links are replaced with placeholders before any prompt leaves the app, and put back locally afterwards." },
+      { title: "Untrusted input", body: "Job text is stripped of HTML and never followed as instructions. Uploads are checked by magic bytes, re-encoded, and stripped of metadata." },
+      { title: "Safe demo", body: "The public demo runs the same code with sample data. It refuses every change in one place, and refuses to start if it's pointed at a database holding real data." },
+    ],
+    engineering: [
+      "Built in phases, each on its own branch with a pull request, a written review checklist, and a release tag.",
+      "CI on every push: lint, type check, unit and integration tests, build, dependency audit, and secret scanning.",
+      "500+ unit and integration tests, plus 320+ end-to-end tests on three phone sizes and desktop, with accessibility checks.",
+      "23 architecture decision records explaining choices like the encryption scheme and hosting.",
+      "Batched the scoring updates so the daily run went from about 146 seconds to 7, well inside the hosting time limit.",
+    ],
+    imageLayout: "phone",
+    images: ["/Job Assistant/1.png", "/Job Assistant/2.png", "/Job Assistant/3.png", "/Job Assistant/4.png", "/Job Assistant/5.png"],
+    imageCaptions: ["Ranked jobs with salary and schedule labels", "Why a job scored what it did", "Scam warnings on a sample post", "Tracker with follow-up reminders", "Answer bank for form questions"],
+  },
+  {
+    slug: "task-management-app",
+    title: "Task Management App",
+    tagline: "A full-stack MERN task manager with a drag-and-drop board, team workspaces with roles and invites, recurring tasks, email reminders, and a calendar and statistics view.",
+    demoUrl: "https://task-management-app-rust-two.vercel.app",
+    repoNote: "The demo opens signed in with sample tasks and runs entirely in your browser, so it's always fast. The real app uses the Express API and MongoDB described below.",
+    role: "Solo: frontend, backend, testing, and deployment",
+    stack: ["React", "TypeScript", "Node.js", "Express", "MongoDB Atlas", "Mongoose", "JWT", "dnd-kit", "Recharts", "Jest", "Supertest", "Docker", "Vercel", "Render"],
+    problem: [
+      "I wanted one place for personal to-dos and small team projects, with the details a real team needs: who owns a task, what changed, and what's due.",
+      "I also wanted to build and ship a complete MERN app end to end: API design, auth, file uploads, background jobs, tests, and separate frontend and backend deployments.",
+    ],
+    features: [
+      { title: "Drag-and-drop board", body: "To Do, In Progress, and Done columns built with dnd-kit. Search, filter, and sort by priority, due date, or creation date." },
+      { title: "Team workspaces", body: "Create a workspace, invite people with a link, and give them owner, admin, or member roles. Tasks can be assigned to a member, and personal tasks stay separate." },
+      { title: "Rich tasks", body: "Labels, categories, priorities, subtasks, comments, and file attachments. Every change is written to a per-task history, so you can see who changed what." },
+      { title: "Recurring tasks", body: "Daily, weekly, or monthly tasks with an interval and an end date. A background job checks every hour and creates the next occurrence." },
+      { title: "Email reminders", body: "An hourly job finds tasks that are due soon or overdue and sends a formatted reminder email with Nodemailer." },
+      { title: "Calendar, stats, export", body: "A month calendar of due dates, a statistics view with Recharts (status and priority breakdowns, completion rate, overdue count), export and import, and dark mode." },
+    ],
+    architecture: [
+      {
+        title: "A request",
+        steps: [
+          { label: "React + TypeScript (Vercel)", detail: "Axios client adds the JWT to every request" },
+          { label: "Express REST API (Render)", detail: "Auth middleware verifies the token and loads the user" },
+          { label: "Routes for auth, tasks, and workspaces", detail: "Queries are scoped to the signed-in user or a workspace they belong to" },
+          { label: "MongoDB Atlas via Mongoose", detail: "User, Task, and Workspace models; attachments stored with Multer" },
+        ],
+      },
+      {
+        title: "Background jobs (every hour)",
+        steps: [
+          { label: "Recurring task scheduler", detail: "Creates the next copy of daily, weekly, and monthly tasks" },
+          { label: "Due-date notifier", detail: "Emails reminders for tasks due soon or overdue" },
+        ],
+      },
+    ],
+    security: [
+      { title: "Hashed passwords", body: "Passwords are hashed with bcrypt before they're stored, and the password field is excluded from queries by default, so it never reaches API responses." },
+      { title: "Token auth", body: "Task and workspace routes require a signed JWT in the Authorization header; auth middleware verifies it and loads the user on every request." },
+      { title: "Scoped data", body: "Personal tasks are only returned to their owner, and workspace tasks only to that workspace's members. Owner and admin roles gate member management." },
+      { title: "Demo without a server", body: "The portfolio demo swaps the HTTP layer for an in-browser mock of the same API, so visitors never touch a real database and nothing they do is saved." },
+    ],
+    engineering: [
+      "133 automated tests with Jest and Supertest: unit tests for the auth middleware and user model, and integration tests for the auth, task, and workspace routes.",
+      "Docker Compose runs the frontend, backend, and MongoDB together for local development.",
+      "Frontend and backend deploy separately (Vercel and Render), with MongoDB Atlas as the database.",
+      "A demo mode, switched on with one environment variable, answers every API call in the browser with sample data.",
+    ],
+    imageLayout: "desktop",
+    images: ["/Task Management App/1.png", "/Task Management App/2.png", "/Task Management App/3.png", "/Task Management App/4.png", "/Task Management App/5.png"],
+    imageCaptions: ["Team workspace board", "Task details with assignee and attachment", "Calendar of due dates", "Statistics view", "Dark mode"],
+  },
+]
+
+export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug)
