@@ -16,6 +16,7 @@
   workingHours: "Based in the Philippines (UTC+8), flexible with working hours, including US time zones.",
   // Google Calendar appointment page; the "Book a call" button stays hidden while empty.
   bookingUrl: "",
+  callNote: "Currently working Mon–Fri, 8am–5pm (UTC+8). Calls before or after work, or on weekends, are easiest for me.",
   highlights: [
     { value: "2+ yrs", label: "building production web and desktop apps" },
     { value: "4", label: "live demos you can try with sample data" },
