@@ -28,7 +28,7 @@ export default function Projects({ order }: { order?: string[] }) {
       <div role="group" aria-label="Filter projects" style={{ display:"flex", flexWrap:"wrap", gap:"8px", marginBottom:"16px" }}>
         {projectTabs.map((t) => (
           <button key={t} aria-pressed={tab === t && !skill} onClick={() => { setTab(t); setSkill(null) }} style={tabStyle(tab === t && !skill)}>
-            {t} <span style={{ opacity:0.75 }}>({projects.filter((p) => inTab(p, t)).length})</span>
+            {t} <span>({projects.filter((p) => inTab(p, t)).length})</span>
           </button>
         ))}
       </div>

@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${cs.title} - Case Study | John Adrian Ticatic`,
     description: cs.tagline,
+    alternates: { canonical: `/projects/${cs.slug}` },
+    openGraph: { url: `/projects/${cs.slug}` },
   }
 }
 
@@ -69,7 +71,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <h2 style={heading}>Quick tour (silent, sample data)</h2>
           <video
             src={cs.video}
-            poster={cs.video.replace(/\.mp4$/, "-poster.jpg")}
+            poster={cs.video.replace(/\.mp4$/, "-poster.webp")}
             aria-label={`${cs.title} demo tour`}
             controls
             muted

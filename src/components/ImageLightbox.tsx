@@ -83,7 +83,7 @@ export default function ImageLightbox({ images, captions, startIndex = 0, label,
           <video
             key={images[index]}
             src={images[index]}
-            poster={images[index].replace(/\.mp4$/, "-poster.jpg")}
+            poster={images[index].replace(/\.mp4$/, "-poster.webp")}
             aria-label={caption ?? `${label} demo video`}
             onClick={(e) => e.stopPropagation()}
             autoPlay

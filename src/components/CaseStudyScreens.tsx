@@ -18,7 +18,7 @@ export default function CaseStudyScreens({ title, images, captions, layout }: Pr
               style={{ display:"block", width:"100%", padding:0, border:"none", background:"none", cursor:"zoom-in" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt={captions[i]} loading="lazy" style={{ width:"100%", height:"auto", borderRadius:"8px", border:"1px solid var(--border)", display:"block" }} />
+              <img src={src.replace(/\.webp$/, "-sm.webp")} alt={captions[i]} loading="lazy" decoding="async" style={{ width:"100%", height:"auto", borderRadius:"8px", border:"1px solid var(--border)", display:"block" }} />
             </button>
             <figcaption style={{ fontSize:"0.75rem", color:"var(--muted)", marginTop:"6px", lineHeight:1.5 }}>{captions[i]}</figcaption>
           </figure>
