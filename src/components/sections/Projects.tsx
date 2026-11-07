@@ -1,18 +1,45 @@
 ﻿"use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { projects } from "@/data"
 import ImageLightbox from "@/components/ImageLightbox"
 import { orderBy } from "@/data/roles"
+import { inTab, projectTabs, SKILL_FILTER_EVENT, usesSkill, type ProjectTab } from "@/data/projectFilters"
+
+const tabStyle = (active: boolean) => ({ fontSize:"0.8rem", minHeight:"36px", padding:"6px 14px", borderRadius:"9999px", cursor:"pointer", border:`1px solid ${active ? "var(--accent)" : "var(--border)"}`, backgroundColor: active ? "var(--accent)" : "transparent", color: active ? "#ffffff" : "var(--text)" })
 
 export default function Projects({ order }: { order?: string[] }) {
   const [expanded, setExpanded] = useState<string | null>(null)
   const [gallery, setGallery] = useState<{ title: string; images: string[] } | null>(null)
+  const [tab, setTab] = useState<ProjectTab>("All")
+  const [skill, setSkill] = useState<string | null>(null)
+
+  // Tapping a skill chip in Core Skills shows only the projects that use it.
+  useEffect(() => {
+    const onSkill = (e: Event) => { setSkill((e as CustomEvent<string>).detail); setTab("All") }
+    window.addEventListener(SKILL_FILTER_EVENT, onSkill)
+    return () => window.removeEventListener(SKILL_FILTER_EVENT, onSkill)
+  }, [])
+
+  const shown = orderBy(projects, order, (p) => p.id).filter((p) => inTab(p, tab) && (!skill || usesSkill(p, skill)))
 
   return (
-    <section id="projects" style={{ padding:"32px 24px", borderBottom:"1px solid var(--border)" }}>
-      <h2 style={{ fontSize:"0.75rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--accent)", marginBottom:"24px" }}>Projects</h2>
+    <section id="projects" style={{ padding:"32px 24px", borderBottom:"1px solid var(--border)", scrollMarginTop:"72px" }}>
+      <h2 style={{ fontSize:"0.75rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--accent)", marginBottom:"16px" }}>Projects</h2>
+      <div role="group" aria-label="Filter projects" style={{ display:"flex", flexWrap:"wrap", gap:"8px", marginBottom:"16px" }}>
+        {projectTabs.map((t) => (
+          <button key={t} aria-pressed={tab === t && !skill} onClick={() => { setTab(t); setSkill(null) }} style={tabStyle(tab === t && !skill)}>
+            {t} <span style={{ opacity:0.75 }}>({projects.filter((p) => inTab(p, t)).length})</span>
+          </button>
+        ))}
+      </div>
+      {skill && (
+        <div role="status" style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:"12px", flexWrap:"wrap", padding:"10px 14px", marginBottom:"16px", borderRadius:"8px", border:"1px solid var(--accent)", fontSize:"0.85rem", color:"var(--text)" }}>
+          <span>Showing {shown.length} project{shown.length === 1 ? "" : "s"} using <strong>{skill}</strong></span>
+          <button onClick={() => setSkill(null)} style={{ minHeight:"32px", background:"none", border:"none", color:"var(--accent)", cursor:"pointer", fontSize:"0.85rem", textDecoration:"underline" }}>Show all projects</button>
+        </div>
+      )}
       <div style={{ display:"flex", flexDirection:"column", gap:"16px" }}>
-        {orderBy(projects, order, (p) => p.id).map((project) => (
+        {shown.map((project) => (
           <div key={project.id} style={{ padding:"24px", borderRadius:"8px", border:"1px solid var(--border)", backgroundColor:"var(--surface)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"8px", flexWrap:"wrap", gap:"8px" }}>
               <div style={{ display:"flex", alignItems:"center", gap:"8px" }}>
