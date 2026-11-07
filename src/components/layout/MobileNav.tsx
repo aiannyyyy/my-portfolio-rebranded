@@ -1,5 +1,6 @@
 ﻿"use client"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { personal } from "@/data"
 import ThemeToggle from "@/components/ThemeToggle"
 
@@ -7,6 +8,7 @@ const navItems = ["About", "Skills", "Projects", "Experience", "Education", "Cer
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <nav className="mobile-nav" style={{ display:"none", position:"sticky", top:0, zIndex:100, backgroundColor:"var(--canvas)", borderBottom:"1px solid var(--border)", padding:"12px 20px" }}>
@@ -25,7 +27,7 @@ export default function MobileNav() {
       {open && (
         <div style={{ marginTop:"12px", display:"flex", flexDirection:"column", gap:"4px" }}>
           {navItems.map((item) => (
-            <a key={item} href={"/#"+item.toLowerCase()} onClick={() => setOpen(false)} style={{ padding:"10px 12px", borderRadius:"6px", color:"var(--muted)", textDecoration:"none", fontSize:"0.875rem", backgroundColor:"var(--surface)" }}>
+            <a key={item} href={(pathname.startsWith("/for/") ? pathname : "/")+"#"+item.toLowerCase()} onClick={() => setOpen(false)} style={{ padding:"10px 12px", borderRadius:"6px", color:"var(--muted)", textDecoration:"none", fontSize:"0.875rem", backgroundColor:"var(--surface)" }}>
               {item}
             </a>
           ))}

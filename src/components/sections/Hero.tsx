@@ -7,7 +7,7 @@ const button = { display:"inline-flex", alignItems:"center", justifyContent:"cen
 const primary = { ...button, backgroundColor:"var(--accent)", color:"#ffffff", border:"1px solid var(--accent)" }
 const secondary = { ...button, backgroundColor:"transparent", color:"var(--accent)", border:"1px solid var(--accent)" }
 
-export default function Hero() {
+export default function Hero({ headline = personal.headline }: { headline?: string }) {
   const [copied, setCopied] = useState(false)
 
   const copyEmail = async () => {
@@ -32,7 +32,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <h2 style={{ fontSize:"clamp(1.35rem, 4vw, 1.9rem)", fontWeight:700, lineHeight:1.25, color:"var(--text)", margin:0 }}>{personal.headline}</h2>
+      <h2 style={{ fontSize:"clamp(1.35rem, 4vw, 1.9rem)", fontWeight:700, lineHeight:1.25, color:"var(--text)", margin:0 }}>{headline}</h2>
       <p style={{ fontSize:"0.95rem", lineHeight:1.6, color:"var(--text)", margin:"12px 0 4px" }}>
         <span aria-hidden="true" style={{ display:"inline-block", width:"8px", height:"8px", borderRadius:"50%", backgroundColor:"#16a34a", marginRight:"8px", verticalAlign:"middle" }} />
         {personal.availability}
