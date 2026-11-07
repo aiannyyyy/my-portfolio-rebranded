@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.local
+
+# Playwright installed by the demo check workflow
+/scripts/node_modules

@@ -1,0 +1,28 @@
+name: Demo check
+
+# Opens the portfolio and the four live demos every Monday at 8am Philippine
+# time (00:00 UTC). A failed run makes GitHub email the repo owner.
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      # Installed next to the script only for this check, so it is not a site dependency.
+      - name: Install browser
+        run: |
+          npm install --prefix scripts --no-save --no-package-lock playwright@1.64.1
+          scripts/node_modules/.bin/playwright install --with-deps chromium
+      - name: Check demos
+        run: node scripts/check-demos.mjs
