@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 import { personal } from "@/data"
 import ThemeToggle from "@/components/ThemeToggle"
 
-const navItems = ["About", "Skills", "Projects", "Experience", "Education", "Certifications"]
+const navItems = ["About", "Skills", "Projects", "Notes", "Experience", "Education", "Certifications"]
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)

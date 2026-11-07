@@ -36,6 +36,20 @@
 .mobile-only { display: none !important; }
 .chat-label-short { display: none; }
 
+/* Engineering notes, rendered from Markdown */
+.note-body { color: var(--text); font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; }
+.note-body p, .note-body ul, .note-body ol { margin: 0 0 1.1em; }
+.note-body h2 { font-size: 1.2rem; font-weight: 600; line-height: 1.35; margin: 1.8em 0 0.6em; }
+.note-body ul, .note-body ol { padding-left: 1.4em; }
+.note-body ul { list-style: disc; }
+.note-body ol { list-style: decimal; }
+.note-body li { margin: 0.35em 0; }
+.note-body a { color: var(--accent); text-decoration: underline; }
+.note-body strong { font-weight: 600; }
+.note-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; padding: 0.1em 0.35em; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); }
+.note-body pre { overflow-x: auto; padding: 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); }
+.note-body pre code { padding: 0; border: none; }
+
 /* Mobile — hide sidebar, show mobile nav */
 @media (max-width: 768px) {
   .desktop-sidebar { display: none !important; }

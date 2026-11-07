@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero"
 import About from "@/components/sections/About"
 import Skills from "@/components/sections/Skills"
 import Projects from "@/components/sections/Projects"
+import Notes from "@/components/sections/Notes"
 import Experience from "@/components/sections/Experience"
 import Education from "@/components/sections/Education"
 import Certifications from "@/components/sections/Certifications"
@@ -17,6 +18,7 @@ export default function HomeContent({ role }: { role?: Role }) {
       <About />
       <Skills order={role?.skillOrder} />
       <Projects order={role?.projectOrder} />
+      <Notes />
       <Experience />
       <Education />
       <Certifications />
