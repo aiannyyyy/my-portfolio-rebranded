@@ -2,8 +2,9 @@
 import { useState } from "react"
 import { projects } from "@/data"
 import ImageLightbox from "@/components/ImageLightbox"
+import { orderBy } from "@/data/roles"
 
-export default function Projects() {
+export default function Projects({ order }: { order?: string[] }) {
   const [expanded, setExpanded] = useState<string | null>(null)
   const [gallery, setGallery] = useState<{ title: string; images: string[] } | null>(null)
 
@@ -11,7 +12,7 @@ export default function Projects() {
     <section id="projects" style={{ padding:"32px 24px", borderBottom:"1px solid var(--border)" }}>
       <h2 style={{ fontSize:"0.75rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--accent)", marginBottom:"24px" }}>Projects</h2>
       <div style={{ display:"flex", flexDirection:"column", gap:"16px" }}>
-        {projects.map((project) => (
+        {orderBy(projects, order, (p) => p.id).map((project) => (
           <div key={project.id} style={{ padding:"24px", borderRadius:"8px", border:"1px solid var(--border)", backgroundColor:"var(--surface)" }}>
             <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"8px", flexWrap:"wrap", gap:"8px" }}>
               <div style={{ display:"flex", alignItems:"center", gap:"8px" }}>
