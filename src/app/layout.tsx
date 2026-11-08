@@ -19,10 +19,6 @@ export const metadata: Metadata = {
     description,
   },
   twitter: { card: "summary_large_image", title: `${personal.name} - Full-Stack Developer`, description },
-  icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
