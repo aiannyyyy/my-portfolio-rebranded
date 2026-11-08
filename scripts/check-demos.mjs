@@ -4,8 +4,10 @@
 import { chromium } from "playwright"
 
 const checks = [
-  { name: "Portfolio", url: "https://my-portfolio-rebranded.vercel.app/", expect: ["Full-Stack Developer", "See live demos"] },
-  { name: "Portfolio case study", url: "https://my-portfolio-rebranded.vercel.app/projects/job-assistant", expect: ["Quick tour"] },
+  { name: "Portfolio", url: "https://johnadrian.dev/", expect: ["Full-Stack Developer", "See live demos"] },
+  { name: "Portfolio case study", url: "https://johnadrian.dev/projects/job-assistant", expect: ["Quick tour"] },
+  // Links sent before the domain change must still land on the site.
+  { name: "Old portfolio link", url: "https://my-portfolio-rebranded.vercel.app/notes/securing-my-job-app", expect: ["How I secured"] },
   { name: "Job Application Assistant", url: "https://job-assistant-demo.vercel.app/jobs", expect: ["Demo with sample data", "Jobs"] },
   { name: "Task Management App", url: "https://task-management-app-rust-two.vercel.app/", expect: ["Task Manager", "My Tasks"] },
   { name: "Corporate Dashboard", url: "https://nscsl-dashboard.vercel.app/dashboard/pdo", expect: ["Demo Admin"] },
