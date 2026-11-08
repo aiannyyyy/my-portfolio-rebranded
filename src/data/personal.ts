@@ -6,7 +6,7 @@
   email: "john.ticatic@gmail.com",
   location: "Batangas, Philippines",
   github: "https://github.com/aiannyyyy",
-  linkedin: "https://www.linkedin.com/in/john-adrian-ticatic-a080b6206/",
+  linkedin: "https://www.linkedin.com/in/johnadrianticatic/",
   resumeUrl: "/JohnAdrianTicatic_CV.pdf",
   coverLetterUrl: "/John_Adrian_Ticatic_Cover_Letter.pdf",
   avatarUrl: "/image.jpg",
