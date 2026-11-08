@@ -44,7 +44,7 @@
   {
     id: "p3",
     title: "Corporate Dashboard",
-    description: "Multi-module corporate dashboard featuring data visualization, lab tracking, follow-up management, and IT job orders also wired up the File Management System.",
+    description: "Multi-module corporate dashboard featuring data visualization, lab tracking, follow-up management and IT job orders, linked with the File Management System.",
     explanation: "Built for internal corporate use with React, TypeScript, and Node.js. Connects to Oracle and MySQL databases in production. This demo uses mock data to protect corporate data privacy. Features include interactive charts with Recharts, real-time updates, and role-based access.",
     tech: ["React", "TypeScript", "Node.js", "Recharts", "Oracle DB", "MySQL", "Electron.js", "WebSockets"],
     repoUrl: "",
@@ -86,7 +86,7 @@
   {
     id: "p6",
     title: "Replacement System",
-    description: "A desktop application for tracking and managing item replacement requests, used internally for corporate operations.",
+    description: "A desktop application that tracks replacement filter cards when a newborn screening sample is contaminated or rejected, from request to resolution.",
     explanation: "Handles the full replacement workflow — recording, updating, and monitoring replacement transactions — with Crystal Reports integration for generating detailed transaction reports and ensuring accurate tracking and accountability.",
     tech: ["VB.NET", "WinForms", "MySQL", "Crystal Reports"],
     repoUrl: "",
