@@ -25,6 +25,11 @@ export const skills = [
     items: ["Vitest", "Playwright", "axe (accessibility)"],
   },
   {
+    category: "AI Tools",
+    icon: "sparkles",
+    items: ["Claude Code", "Codex", "Claude", "ChatGPT", "GitHub Copilot", "Cursor", "Groq AI", "Prompt engineering"],
+  },
+  {
     category: "Automation",
     icon: "zap",
     items: ["Power Automate", "n8n", "Zapier", "Make"],
