@@ -7,7 +7,7 @@ const button = { display:"inline-flex", alignItems:"center", justifyContent:"cen
 const primary = { ...button, backgroundColor:"var(--accent)", color:"#ffffff", border:"1px solid var(--accent)" }
 const secondary = { ...button, backgroundColor:"transparent", color:"var(--accent)", border:"1px solid var(--accent)" }
 
-export default function Hero({ headline = personal.headline }: { headline?: string }) {
+export default function Hero({ headline = personal.headline, demoCheckDate }: { headline?: string; demoCheckDate?: string | null }) {
   const [copied, setCopied] = useState(false)
 
   const copyEmail = async () => {
@@ -47,6 +47,14 @@ export default function Hero({ headline = personal.headline }: { headline?: stri
           </li>
         ))}
       </ul>
+
+      {/* Shown only after a recent passing run of the weekly demo check. */}
+      {demoCheckDate && (
+        <p style={{ fontSize:"0.85rem", lineHeight:1.5, color:"var(--muted)", margin:"-8px 0 20px" }}>
+          <span aria-hidden="true" style={{ color:"#16a34a", fontWeight:700, marginRight:"6px" }}>✓</span>
+          All live demos passed the weekly automated check · {demoCheckDate}
+        </p>
+      )}
 
       <div style={{ display:"flex", flexWrap:"wrap", gap:"10px" }}>
         <a href="#projects" style={primary}>See live demos</a>
