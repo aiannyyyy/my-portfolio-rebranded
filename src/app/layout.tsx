@@ -8,7 +8,7 @@ const description = `${personal.headline}. ${personal.availability} Live demos, 
 
 export const metadata: Metadata = {
   metadataBase: new URL(personal.siteUrl),
-  title: "John Adrian Ticatic - Software Engineer",
+  title: "John Adrian Ticatic - Full-Stack Developer",
   description,
   alternates: { canonical: "/" },
   openGraph: {
