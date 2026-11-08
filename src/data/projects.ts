@@ -36,7 +36,7 @@
     explanation: "Redesigned from React to Next.js for better performance and SEO. Features a two-column sidebar layout, AI assistant powered by Groq (Llama 3.3), dark/light mode, and sections for skills, projects, experience, and certifications.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Groq AI", "Vercel"],
     repoUrl: "https://github.com/aiannyyyy/my-portfolio-rebranded.git",
-    liveUrl: "https://my-portfolio-rebranded.vercel.app/",
+    liveUrl: "https://johnadrian.dev/",
     difficulty: "Complex",
     ongoing: false,
     featured: true,
