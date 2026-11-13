@@ -2,7 +2,7 @@
   name: "John Adrian Ticatic",
   title: "Full-Stack Developer",
   bio: "Building web apps, dashboards and internal tools with React, Next.js and Node.js.",
-  about: "I'm a Full-Stack Developer based in Batangas, Philippines, with 2+ years of experience building web and desktop applications. I work mainly with React, Next.js, Node.js and TypeScript, and VB.NET for desktop tools. As a Computer Programmer at Newborn Screening Center - Southern Luzon, I build internal systems for the laboratory and administrative teams: a dashboard that moves reports off Excel and a legacy LIMS, a file management system with department-based access, and small desktop tools for daily lab work. Query and backend work on Oracle made one system about 40% faster. I care about clear, reliable software that solves real problems.",
+  about: "I'm a Full-Stack Developer based in Batangas, Philippines, with 2+ years of experience building web and desktop applications. I work mainly with React, Next.js, Node.js and TypeScript, and VB.NET for desktop tools. At Newborn Screening Center - Southern Luzon, I started as a Computer Programmer and am now one of two IT Managers, supporting IT operations while I continue to build the internal systems the laboratory and administrative teams use: a dashboard that moves reports off Excel and a legacy LIMS, a file management system with department-based access, and small desktop tools for daily lab work. Query and backend work on Oracle made one system about 40% faster. I care about clear, reliable software that solves real problems.",
   email: "john.ticatic@gmail.com",
   location: "Batangas, Philippines",
   github: "https://github.com/aiannyyyy",
