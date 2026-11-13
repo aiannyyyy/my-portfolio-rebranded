@@ -1,12 +1,13 @@
 ﻿"use client"
 import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
+
+// true in the browser, false during server rendering, without a setState in an effect.
+const noop = () => () => {}
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
+  const mounted = useSyncExternalStore(noop, () => true, () => false)
   if (!mounted) return null
 
   return (
