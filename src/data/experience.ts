@@ -1,13 +1,24 @@
 export const experience = [
   {
     company: "Newborn Screening Center - Southern Luzon",
-    role: "Computer Programmer I",
-    period: "Jan 2024 - Present",
+    role: "IT Manager",
+    period: "Nov 2026 - Present",
     description: [
-      "Designed and developed custom internal applications to replace an unsupported legacy LIMS, improving reporting and operations across departments",
-      "Built a centralized Corporate Dashboard integrating Oracle and MySQL for real-time data visualization and KPI tracking",
-      "Delivered Accounting, Replacement, and Image Verification systems to automate key internal workflows",
-      "Improved system performance by 40% through query optimization and backend refactoring",
+      "Continue to build and maintain the Corporate Dashboard, File Management System and desktop tools",
+      "Support IT operations together with the company's other IT Manager",
+      "Help plan IT projects, priorities and budget",
+      "Write and maintain system and IT documentation",
+    ],
+  },
+  {
+    company: "Newborn Screening Center - Southern Luzon",
+    role: "Computer Programmer I",
+    period: "Jan 2024 - Nov 2026",
+    description: [
+      "Built a Corporate Dashboard (React, TypeScript, Node.js/Express) that reads Oracle and MySQL data and shows KPIs, replacing manual Excel reports and an unsupported legacy LIMS",
+      "Improved system performance by 40% with indexes, rewritten queries, fewer database calls per page, and summary tables and views",
+      "Built a File Management System with department-based access, activity history, file previews and team chat (WebSockets) for an ISO accreditation finding",
+      "Developed VB.NET desktop tools for filter card replacement tracking, image verification and accounting, with Crystal Reports",
     ],
   },
   {
