@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
     demoUrl: "https://job-assistant-demo.vercel.app",
     repoNote: "The source code is private because the real app holds my personal data. The demo is the same codebase running on sample data.",
     role: "Solo: design, build, security, testing, and deployment",
-    stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL (Neon)", "Drizzle ORM", "Zod", "Tailwind CSS", "Vitest", "Playwright", "GitHub Actions", "Vercel"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL (Neon)", "Drizzle ORM", "Zod", "Tailwind CSS", "Vitest", "Playwright", "GitHub Actions", "Vercel", "Claude Code"],
     problem: [
       "Looking for remote work from the Philippines means checking many job boards, and most listings turn out to be US-only, senior, or onsite.",
       "Jobs shared on Facebook groups and as poster images are hard to track, and some are scams asking for fees or IDs.",
@@ -40,6 +40,7 @@ export const caseStudies: CaseStudy[] = [
       { title: "Manual import with scam checks", body: "Paste a Facebook post or upload a poster screenshot. OCR runs inside the app, fields are pre-filled for review, and posts that ask for fees, IDs, or Telegram-only contact get a visible warning." },
       { title: "Company check", body: "Checks the company website, domain age via public RDAP, and whether the contact email matches the domain, then builds search links I open myself. A helper verdict, never a guarantee." },
       { title: "Honest tailoring", body: "Builds a prompt with my contact details masked as placeholders, I run it in my own Claude Project, and paste the result back. A validator flags any skill, employer, date, or number that isn't in my master resume before I can export to Word or PDF." },
+      { title: "Built with Claude Code", body: "Built with Claude Code, guided by a project CLAUDE.md (hard rules for security, privacy and phase-by-phase work) and 7 custom skills: security review, writing tests, mobile UI check, database migrations, adding a job source, resume truthfulness and an end-of-phase gate. I review and approve every change." },
       { title: "Tracker and answer bank", body: "Pipeline from applied to offer, follow-up reminders after 7 days, a ghosted suggestion after 30, calendar files for interviews, and saved answers to common form questions with one-tap copy." },
     ],
     architecture: [
