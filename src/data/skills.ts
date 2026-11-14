@@ -27,7 +27,7 @@ export const skills = [
   {
     category: "AI Tools",
     icon: "sparkles",
-    items: ["Claude Code", "Codex", "Claude", "ChatGPT", "GitHub Copilot", "Cursor", "Groq AI", "Prompt engineering"],
+    items: ["Claude Code", "Claude Code skills", "Codex", "Claude", "ChatGPT", "GitHub Copilot", "Cursor", "Groq AI", "Prompt engineering"],
   },
   {
     category: "Automation",
